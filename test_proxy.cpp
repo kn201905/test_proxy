@@ -187,7 +187,7 @@ int main()
 
 	// read
 	{
-		unsigned char buf_read[4000];
+		char buf_read[4000];
 		ssize_t bytes_read = read(fd_sock_client, buf_read, 4000);
 
 		if (bytes_read < 0 || bytes_read == 4000)
@@ -201,7 +201,7 @@ int main()
 		std::cout << "--- read() に成功しました。bytes -> " << bytes_read << std::endl;
 
 		buf_read[bytes_read] = 0;
-		std::string str_read{ (const char*)buf_read };
+		std::string str_read{ buf_read };
 		std::cout << "--- 読み込み内容" << std::endl;
 		std::cout << str_read << std::endl;
 	}
